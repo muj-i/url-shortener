@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "b920d0fc-c371-4aa6-b193-489bb1a9d7aa",
+		"name": "url-shorter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31234435"
+	},
+	"item": [
+		{
+			"name": "Create a short URL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"url\": \"https://www.apple.com/shop/buy-airpods/airpods-pro-2?fnode=cd8e272af3f364b935c8e39d1e16827f499751b41182d035fc430db05e2fd10774dd2fcfb0b826ee89b96f7564c1226639a3aa445b3cd646ac8bde42342d1761f323ff8e88806e428f7c712bfc921d3974b0fb4a0246cea8c6fcaef8150e45f7\",\n  \"alias\": \"airpods-pro-2\",        \n  \"expires_in\": 3600         \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/shorten",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shorten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Redirect to original",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/airpods-pro-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"airpods-pro-2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/info/airpods-pro-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"info",
+						"airpods-pro-2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove URL",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete/airpods-pro-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete",
+						"airpods-pro-2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
